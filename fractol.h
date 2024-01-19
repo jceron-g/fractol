@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/19 11:56:51 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:14:58 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,13 @@ typedef struct s_fractal
 	void	*mlx_connection; //mlx_init()
 	void	*mlx_window;	//mlx_new_window()
 	//IMAGE
-	t_img	img;
-	//HOOKS member variables
+	t_img	*img;
+	//NUMBER BOUNDARIES
+	int		max_iters;
+	int		max_real;
+	int		max_imaginary;
+	int		min_real;
+	int		min_imaginary;
 }				t_fractal;
 
 /* IMAGE This is basically a pixels buffer*/
@@ -49,6 +54,6 @@ typedef struct s_img
 int		get_rgba(int r, int g, int b, int a);
 
 /*Display functions*/
-void	fractal_init(t_fractal *fractal);
+void	init_mandelbrot(t_fractal *fractal);
 
 #endif

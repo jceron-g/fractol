@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:34:53 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/19 11:57:16 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:11:43 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		fractal.name = argv[1];
 	// Si esto es cierto que arranque el código
 	//1)
-		fractal_init(&fractal);
+		init_mandelbrot(&fractal);
 	//2)
 		fractal_render(&fractal);
 	//3)
