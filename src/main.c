@@ -6,29 +6,28 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:34:53 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/18 12:13:36 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/19 11:57:16 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-// int main(int argc, char **argv)
-// {
-// 	if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)
-// 	|| argc == 4 && !ft_strncmp(argv[1], "julia", 5))
-// 	{
-// 	}
-// }
-int	main(void)
+int	main(int argc, char **argv)
 {
-	mlx_t		*mlx;
-	mlx_image_t	*img;
+	t_fractal	fractal;
 
-	mlx = mlx_init(WIDTH, HEIGHT, "hola", true);
-	if (!mlx)
-		exit(EXIT_FAILURE);
-	img = mlx_new_image(mlx, 128, 128);
-	ft_memset(img->pixels, 100, img->width * img->height * BPP);
-	mlx_image_to_window(mlx, img, 100, 100);
-	mlx_loop(mlx);
+	if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)
+		|| argc == 4 && !ft_strncmp(argv[1], "julia", 5))
+	{
+		fractal.name = argv[1];
+	// Si esto es cierto que arranque el código
+	//1)
+		fractal_init(&fractal);
+	//2)
+		fractal_render(&fractal);
+	//3)
+		mlx_loop(fractal.mlx_connection);
+	}
+	else
+	//mensaje de error
 }

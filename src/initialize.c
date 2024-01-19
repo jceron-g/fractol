@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 11:33:07 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/19 10:54:23 by jceron-g         ###   ########.fr       */
+/*   Created: 2024/01/19 11:49:46 by jceron-g          #+#    #+#             */
+/*   Updated: 2024/01/19 11:58:11 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-int	get_rgba(int r, int g, int b, int a)
+/* INIT
+ * MLX
+ * LISTENING EVENTS
+ * HOOKS DATA
+*/
+void	fractal_init(t_fractal *fractal)
 {
-	return (r << 24 | g << 16 | b << 8 | a);
+//MLX STUFF
+	fractal->mlx_connection = mlx_init();
+	fractal->mlx_window = mlx_new_window()
 }
-

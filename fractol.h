@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/18 11:43:41 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/19 11:56:51 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,38 @@
 # include "lib/MLX42/include/MLX42/MLX42.h"
 # define WIDTH 1200
 # define HEIGHT 800
-# define BPP 2
 
 typedef struct s_complex
 {
 	double	real;
 	double	i;
 }				t_complex;
-
+/*FRACTAL ID*/
 typedef struct s_fractal
 {
-	void	*mlx_connection;
-	void	*mlx_window;
-	void	*img;
+	//MLX
+	char	*name;
+	void	*mlx_connection; //mlx_init()
+	void	*mlx_window;	//mlx_new_window()
+	//IMAGE
+	t_img	img;
+	//HOOKS member variables
 }				t_fractal;
 
+/* IMAGE This is basically a pixels buffer*/
+typedef struct s_img
+{
+	void	*img_ptr; //pointer to img struct
+	char	*pixels_ptr; //points to the actuals pixels
+	int		bpp; //Bits per pixel
+	int		endian; //How the order of bytes in a multi-byte value is perceived
+	int		line_line; //We will use it further
+}				t_img;
+
 /* Color functions*/
-int	get_rgba(int r, int g, int b, int a);
+int		get_rgba(int r, int g, int b, int a);
+
+/*Display functions*/
+void	fractal_init(t_fractal *fractal);
 
 #endif
