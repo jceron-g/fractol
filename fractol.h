@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/19 13:14:58 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:22:19 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_complex
 {
 	double	real;
-	double	i;
+	double	imaginary;
 }				t_complex;
 /*FRACTAL ID*/
 typedef struct s_fractal
@@ -31,29 +31,22 @@ typedef struct s_fractal
 	void	*mlx_connection; //mlx_init()
 	void	*mlx_window;	//mlx_new_window()
 	//IMAGE
-	t_img	*img;
+	void	*img;
 	//NUMBER BOUNDARIES
 	int		max_iters;
 	int		max_real;
 	int		max_imaginary;
 	int		min_real;
 	int		min_imaginary;
+	void	*colors;
 }				t_fractal;
-
-/* IMAGE This is basically a pixels buffer*/
-typedef struct s_img
-{
-	void	*img_ptr; //pointer to img struct
-	char	*pixels_ptr; //points to the actuals pixels
-	int		bpp; //Bits per pixel
-	int		endian; //How the order of bytes in a multi-byte value is perceived
-	int		line_line; //We will use it further
-}				t_img;
-
-/* Color functions*/
-int		get_rgba(int r, int g, int b, int a);
-
 /*Display functions*/
-void	init_mandelbrot(t_fractal *fractal);
+void		init_mandelbrot(t_fractal *fractal);
+void		handle_pixel(int pixel_x, int pixel_y, t_fractal *fractal);
+void		fractal_render(t_fractal *fractal);
+/*Maths arreglar map*/
+double		map(double unscale_num, double new_min, double new_max, double old_max);
+t_complex	sum_complex(t_complex z1, t_complex z2);
+t_complex	square_complex(t_complex z);
 
 #endif
