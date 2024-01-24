@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/24 12:07:54 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:17:31 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,20 @@
 # include "lib/MLX42/include/MLX42/MLX42.h"
 # define WIDTH 1200
 # define HEIGHT 800
-# define BLACK	0x000000FF
-# define WHITE	0xFFFFFFFF
-# define LIME_SHOCK 0xCCFF00FF
+// Definición de colores en formato hexadecimal ARGB
+# define BLACK       0x000000FF
+# define WHITE       0xFFFFFFFF
+# define RED         0xFF0000FF
+# define GREEN       0x00FF00FF
+# define BLUE        0x0000FFFF
+# define YELLOW      0xFFFF00FF
+# define MAGENTA     0xFF00FFFF
+# define CYAN        0x00FFFFFF
+# define ORANGE      0xFFA500FF
+# define PURPLE      0x800080FF
+# define GRAY        0x808080FF
+# define LIGHT_GRAY  0xD3D3D3FF
+# define DARK_GRAY   0xA9A9A9FF
 
 typedef struct s_complex
 {
