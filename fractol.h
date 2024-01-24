@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/23 12:16:13 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:07:54 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include "lib/MLX42/include/MLX42/MLX42.h"
 # define WIDTH 1200
 # define HEIGHT 800
-# define BLACK	0x000000
-# define WHITE	0xFFFFFF
-# define LIME_SHOCK 0xCCFF00
+# define BLACK	0x000000FF
+# define WHITE	0xFFFFFFFF
+# define LIME_SHOCK 0xCCFF00FF
 
 typedef struct s_complex
 {
@@ -48,6 +48,7 @@ typedef struct s_fractal
 /*Display functions*/
 void		init_mandelbrot(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
+void		handle_pixel(int pixel_x, int pixel_y, t_fractal *fractal);
 /*Maths arreglar map*/
 double		map(double num, double n_min, double n_max, double o_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);

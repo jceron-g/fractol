@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:49:46 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/23 11:21:24 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:42:21 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	data_init(t_fractal *fractal)
 
 void	init_mandelbrot(t_fractal *fractal)
 {
-	fractal->mlx_connection = mlx_init(WIDTH, HEIGHT, fractal->name, true);
+	fractal->mlx_connection = mlx_init(WIDTH, HEIGHT, fractal->name, false);
 	if (!fractal->mlx_connection)
 		exit(EXIT_FAILURE);
 	fractal->img = mlx_new_image(fractal->mlx_connection, WIDTH, HEIGHT);
@@ -31,4 +31,5 @@ void	init_mandelbrot(t_fractal *fractal)
 	fractal->min_real = -2;
 	fractal->max_imaginary = 2;
 	fractal->min_imaginary = -2;
+	data_init(fractal);
 }
