@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:34:53 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/26 11:25:03 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:40:50 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	main(int argc, char **argv)
 	{
 		fractal.name = argv[1];
 		init_mandelbrot(&fractal);
-		mlx_key_hook(fractal.mlx_connection, &my_keyhook, NULL);
-		mlx_scroll_hook(fractal.mlx_connection, &my_scrollhook, NULL);
+		mlx_key_hook(fractal.mlx_connection, &my_keyhook, &fractal);
 		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
 		mlx_terminate(fractal.mlx_connection);

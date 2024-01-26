@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/26 11:19:51 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:34:51 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_fractal
 	void		*colors;
 	double		esc_value;		//hypotenuse
 	int			iteration_def;
+	double		shift_x;
+	double		shift_y;
 }				t_fractal;
 /*Display functions*/
 void		init_mandelbrot(t_fractal *fractal);
@@ -67,6 +69,5 @@ t_complex	square_complex(t_complex z);
 void		data_init(t_fractal *fractal);
 /*HOOKS*/
 void		my_keyhook(mlx_key_data_t keydata, void *param);
-void		my_scrollhook(double xdelta, double ydelta, void *param);
 
 #endif
