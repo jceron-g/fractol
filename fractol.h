@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/24 12:17:31 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/26 11:19:51 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "lib/libft/libft.h"
 # include "lib/MLX42/include/MLX42/MLX42.h"
-# define WIDTH 1200
+# define WIDTH 800
 # define HEIGHT 800
 // Definición de colores en formato hexadecimal ARGB
 # define BLACK       0x000000FF
@@ -42,7 +42,7 @@ typedef struct s_fractal
 {
 	//MLX
 	char		*name;
-	void		*mlx_connection; //mlx_init()
+	mlx_t		*mlx_connection; //mlx_init()
 	void		*mlx_window;	//mlx_new_window()
 	//IMAGE
 	mlx_image_t	*img;
@@ -65,5 +65,8 @@ double		map(double num, double n_min, double n_max, double o_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 void		data_init(t_fractal *fractal);
+/*HOOKS*/
+void		my_keyhook(mlx_key_data_t keydata, void *param);
+void		my_scrollhook(double xdelta, double ydelta, void *param);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:35:33 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/24 12:36:42 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:44:33 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	handle_pixel(int pixel_x, int pixel_y, t_fractal *fractal)
 	i = 0;
 	z.real = 0.0;
 	z.imag = 0.0;
-	c.real = map(pixel_x, -2, +1, WIDTH);
-	c.imag = map(pixel_y, -1, 1, HEIGHT);
+	c.real = map(pixel_x, -2, +2, WIDTH);
+	c.imag = map(pixel_y, +2, -2, HEIGHT);
 	while (i < fractal->iteration_def)
 	{
 		z = sum_complex(square_complex(z), c);
