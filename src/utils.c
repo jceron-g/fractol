@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:33:07 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/24 11:29:13 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:04:51 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,12 @@ t_complex	square_complex(t_complex z)
 	result.imag = 2 * z.real * z.imag;
 	return (result);
 }
+
+void	msg_error(void)
+{
+	ft_putstr_fd("Error: Invalid arguments\n", 2);
+	ft_putstr_fd("Please use: ./fractol mandelbrot or\n", 2);
+	ft_putstr_fd("./fractol julia <constant_real> <constant_imaginary>\n", 2);
+	exit(EXIT_FAILURE);
+}
+

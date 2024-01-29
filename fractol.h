@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/26 12:34:51 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/29 13:42:30 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ t_complex	square_complex(t_complex z);
 void		data_init(t_fractal *fractal);
 /*HOOKS*/
 void		my_keyhook(mlx_key_data_t keydata, void *param);
+void		msg_error(void);
 
 #endif

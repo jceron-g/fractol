@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:34:53 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/26 12:40:50 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:05:16 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int	main(int argc, char **argv)
 		return (EXIT_SUCCESS);
 	}
 	else
-		exit(EXIT_FAILURE);
+		msg_error();
 }
