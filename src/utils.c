@@ -6,20 +6,15 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:33:07 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/29 12:04:51 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:35:13 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-double	map(double num, double n_min, double n_max, double o_max)
+double	map(double num, double new_min, double new_max, double old_max)
 {
-	double	o_min;
-	double	result;
-
-	o_min = 0.0;
-	result = ((n_max - n_min) * (num - o_min) / (o_max - o_min) + n_min);
-	return (result);
+	return ((new_max - new_min) * num / old_max + new_min);
 }
 
 t_complex	sum_complex(t_complex z1, t_complex z2)
@@ -48,3 +43,28 @@ void	msg_error(void)
 	exit(EXIT_FAILURE);
 }
 
+double	ft_atodbl(int i, double n, double t, char *str)
+{
+	int	decimal;
+
+	decimal = 0;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			t = -1;
+		i++;
+	}
+	while (str[i])
+	{
+		if (str[i] == '.')
+			decimal = 1;
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			if (decimal == 1)
+				t /= 10.00;
+			n = (n * 10.00) + (str[i] - '0');
+		}
+		i++;
+	}
+	return (t * n);
+}

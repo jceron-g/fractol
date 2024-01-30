@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:35:33 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/29 13:48:46 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:42:03 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	handle_pixel(int pixel_x, int pixel_y, t_fractal *fractal)
 	i = 0;
 	z.real = 0.0;
 	z.imag = 0.0;
-	c.real = map(pixel_x, -2, 2, WIDTH) + fractal->shift_x;
-	c.imag = map(pixel_y, 2, -2, HEIGHT) + fractal->shift_y;
+	c.real = (map(pixel_x, -2, 2, WIDTH) + fractal->shift_x) * fractal->zoom;
+	c.imag = (map(pixel_y, 2, -2, HEIGHT) + fractal->shift_y) * fractal->zoom;
 	while (i < fractal->iteration_def)
 	{
 		z = sum_complex(square_complex(z), c);
@@ -44,14 +44,15 @@ void	fractal_render(t_fractal *fractal)
 	int	pixel_y;
 
 	pixel_y = 0;
+	pixel_x = 0;
 	while (pixel_y < HEIGHT)
 	{
-		pixel_x = 0;
 		while (pixel_x < WIDTH)
 		{
 			handle_pixel(pixel_x, pixel_y, fractal);
 			pixel_x++;
 		}
+		pixel_x = 0;
 		pixel_y++;
 	}
 	mlx_image_to_window(fractal->mlx_connection, fractal->img, 0, 0);

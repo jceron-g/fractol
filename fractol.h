@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/29 13:42:30 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:34:59 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,12 @@ typedef struct s_fractal
 	//IMAGE
 	mlx_image_t	*img;
 	//NUMBER BOUNDARIES
-	int			max_iters;
-	int			max_real;
-	int			max_imaginary;
-	int			min_real;
-	int			min_imaginary;
 	void		*colors;
 	double		esc_value;		//hypotenuse
 	int			iteration_def;
 	double		shift_x;
 	double		shift_y;
+	double		zoom;
 }				t_fractal;
 /*Display functions*/
 void		init_mandelbrot(t_fractal *fractal);
@@ -67,7 +63,9 @@ double		map(double num, double n_min, double n_max, double o_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 void		data_init(t_fractal *fractal);
+double		ft_atodbl(int i, double n, double t, char *str);
 /*HOOKS*/
+void		ft_scrollhook(double xdelta, double ydelta, void *param);
 void		my_keyhook(mlx_key_data_t keydata, void *param);
 void		msg_error(void);
 
