@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:00:52 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/30 12:01:53 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:49:55 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 	fractal = param;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 		mlx_close_window(fractal->mlx_connection);
-	else if (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS)
 		fractal->shift_y += 0.5;
 	else if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_PRESS)
 		fractal->shift_y -= 0.5;

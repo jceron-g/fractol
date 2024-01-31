@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:49:46 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/30 12:42:46 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:56:23 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	data_init(t_fractal *fractal)
 {
 	fractal->esc_value = 4;
-	fractal->iteration_def = 50;
+	fractal->iteration_def = 60;
 	fractal->shift_x = 0;
 	fractal->shift_y = 0;
 	fractal->zoom = 1;
