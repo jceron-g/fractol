@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:35:33 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/31 12:56:42 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:13:55 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,20 @@ void	handle_pixel(int pixel_x, int pixel_y, t_fractal *fractal)
 	i = 0;
 	z.real = 0.0;
 	z.imag = 0.0;
-	c.real = (map(pixel_x, -2, 2, WIDTH) + fractal->shift_x);
-	c.imag = (map(pixel_y, 2, -2, HEIGHT) + fractal->shift_y);
+	c.real = (map(pixel_x, -2, 2, WIDTH) * fractal->zoom) + fractal->shift_x;
+	c.imag = (map(pixel_y, 2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
 	while (i < fractal->iteration_def)
 	{
 		z = sum_complex(square_complex(z), c);
 		if ((z.real * z.real) + (z.imag * z.imag) > fractal->esc_value)
 		{
-			color = map(i, BLACK, WHITE, fractal->iteration_def);
+			color = map(i, BLACK, GREEN, fractal->iteration_def);
 			mlx_put_pixel(fractal->img, pixel_x, pixel_y, color);
-			color = 0;
 			return ;
 		}
 		i++;
 	}
-	mlx_put_pixel(fractal->img, pixel_x, pixel_y, BLACK);
+	mlx_put_pixel(fractal->img, pixel_x, pixel_y, WHITE);
 }
 
 void	fractal_render(t_fractal *fractal)

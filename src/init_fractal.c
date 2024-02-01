@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:49:46 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/31 11:56:23 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:10:21 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@ void	data_init(t_fractal *fractal)
 	fractal->shift_x = 0;
 	fractal->shift_y = 0;
 	fractal->zoom = 1;
+}
+
+void	msg_error(void)
+{
+	ft_putstr_fd("Error: Invalid arguments\n", 2);
+	ft_putstr_fd("Please use: ./fractol mandelbrot or\n", 2);
+	ft_putstr_fd("./fractol julia <constant_real> <constant_imaginary>\n", 2);
+	exit(EXIT_FAILURE);
 }
 
 void	init_mandelbrot(t_fractal *fractal)

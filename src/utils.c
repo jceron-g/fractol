@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:33:07 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/01/30 12:35:13 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:01:16 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 double	map(double num, double new_min, double new_max, double old_max)
 {
-	return ((new_max - new_min) * num / old_max + new_min);
+	return ((new_max - new_min) * (num) / (old_max) + new_min);
 }
 
 t_complex	sum_complex(t_complex z1, t_complex z2)
@@ -33,14 +33,6 @@ t_complex	square_complex(t_complex z)
 	result.real = (z.real * z.real) - (z.imag * z.imag);
 	result.imag = 2 * z.real * z.imag;
 	return (result);
-}
-
-void	msg_error(void)
-{
-	ft_putstr_fd("Error: Invalid arguments\n", 2);
-	ft_putstr_fd("Please use: ./fractol mandelbrot or\n", 2);
-	ft_putstr_fd("./fractol julia <constant_real> <constant_imaginary>\n", 2);
-	exit(EXIT_FAILURE);
 }
 
 double	ft_atodbl(int i, double n, double t, char *str)
