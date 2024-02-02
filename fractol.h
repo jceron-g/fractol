@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/01 13:11:30 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/02 11:45:16 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define MAGENTA     0xFF00FFFF
 # define CYAN        0x00FFFFFF
 # define ORANGE      0xFFA500FF
-# define PURPLE      0x800080FF
+# define PURPLE      0x660066FF
 # define GRAY        0x808080FF
 # define LIGHT_GRAY  0xD3D3D3FF
 # define DARK_GRAY   0xA9A9A9FF
@@ -52,21 +52,25 @@ typedef struct s_fractal
 	int			iteration_def;
 	double		shift_x;
 	double		shift_y;
+	double		julia_x;
+	double		julia_y;
 	double		zoom;
 }				t_fractal;
 /*Display functions*/
 void		init_mandelbrot(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
 void		handle_pixel(int pixel_x, int pixel_y, t_fractal *fractal);
-/*Maths arreglar map*/
+void		msg_error(void);
+void		data_init(t_fractal *fractal);
+void		choose_fractal(t_complex *z, t_complex *c, t_fractal *fractal);
+int			check_fractal(int argc, char **argv, t_fractal *fractal);
+/*Maths*/
 double		map(double num, double n_min, double n_max, double o_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
-void		data_init(t_fractal *fractal);
 double		ft_atodbl(int i, double n, double t, char *str);
 /*HOOKS*/
 void		ft_scrollhook(double xdelta, double ydelta, void *param);
 void		my_keyhook(mlx_key_data_t keydata, void *param);
-void		msg_error(void);
 
 #endif
