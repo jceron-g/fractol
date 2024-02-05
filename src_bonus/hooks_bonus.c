@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:00:52 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/05 10:24:32 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:02:57 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 		fractal->iteration_def += 10;
 	else if (mlx_is_key_down(fractal->mlx_connection, MLX_KEY_KP_SUBTRACT))
 		fractal->iteration_def -= 10;
+	else if (mlx_is_key_down(fractal->mlx_connection, MLX_KEY_UP))
+		fractal->shift_y += 0.5;
+	else if (mlx_is_key_down(fractal->mlx_connection, MLX_KEY_DOWN))
+		fractal->shift_y -= 0.5;
+	else if (mlx_is_key_down(fractal->mlx_connection, MLX_KEY_RIGHT))
+		fractal->shift_x += 0.5;
+	else if (mlx_is_key_down(fractal->mlx_connection, MLX_KEY_LEFT))
+		fractal->shift_x -= 0.5;
 	fractal_render(fractal);
 }
 

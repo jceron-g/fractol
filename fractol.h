@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/02 11:45:16 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:40:53 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 typedef struct s_complex
 {
 	double	real;
-	double	imag;
+	double	ima;
 }				t_complex;
 /*FRACTAL ID*/
 typedef struct s_fractal
@@ -55,11 +55,13 @@ typedef struct s_fractal
 	double		julia_x;
 	double		julia_y;
 	double		zoom;
+	double		x;
+	double		y;
 }				t_fractal;
 /*Display functions*/
 void		init_mandelbrot(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
-void		handle_pixel(int pixel_x, int pixel_y, t_fractal *fractal);
+void		handle_pixel(t_fractal *fractal);
 void		msg_error(void);
 void		data_init(t_fractal *fractal);
 void		choose_fractal(t_complex *z, t_complex *c, t_fractal *fractal);

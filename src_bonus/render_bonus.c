@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:35:33 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/05 12:05:13 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:02:39 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	handle_pixel(t_fractal *fractal)
 		z = sum_complex(square_complex(z), c);
 		if ((z.real * z.real) + (z.ima * z.ima) > fractal->esc_value)
 		{
-			color = map(i, BLACK, GREEN, fractal->iteration_def);
+			color = map(i, BLACK, BLUE, fractal->iteration_def);
 			mlx_put_pixel(fractal->img, fractal->x, fractal->y, color);
 			return ;
 		}
@@ -53,8 +53,8 @@ void	handle_pixel(t_fractal *fractal)
 
 void	fractal_render(t_fractal *fractal)
 {
-	fractal->x = 0;
 	fractal->y = 0;
+	fractal->x = 0;
 	while (fractal->y < HEIGHT)
 	{
 		fractal->x = 0;
