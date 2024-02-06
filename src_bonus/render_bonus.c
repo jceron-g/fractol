@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:35:33 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/06 15:12:01 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:23:23 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	handle_pixel(t_fractal *fractal)
 		z = sum_complex(square_complex(z, fractal), c, fractal);
 		if ((z.real * z.real) + (z.ima * z.ima) > fractal->esc_value)
 		{
-			color = map(i, BLACK, WHITE, fractal->iteration_def);
+			color = map(i, BLACK, GREEN, fractal->iteration_def);
 			mlx_put_pixel(fractal->img, fractal->x, fractal->y, color);
 			return ;
 		}
