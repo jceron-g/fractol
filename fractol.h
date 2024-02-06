@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/05 11:40:53 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/06 13:27:12 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "lib/libft/libft.h"
 # include "lib/MLX42/include/MLX42/MLX42.h"
+# include <math.h>
 # define WIDTH 800
 # define HEIGHT 800
 // Definición de colores en formato hexadecimal ARGB
@@ -68,8 +69,8 @@ void		choose_fractal(t_complex *z, t_complex *c, t_fractal *fractal);
 int			check_fractal(int argc, char **argv, t_fractal *fractal);
 /*Maths*/
 double		map(double num, double n_min, double n_max, double o_max);
-t_complex	sum_complex(t_complex z1, t_complex z2);
-t_complex	square_complex(t_complex z);
+t_complex	sum_complex(t_complex z1, t_complex z2, t_fractal *fractal);
+t_complex	square_complex(t_complex z, t_fractal *fractal);
 double		ft_atodbl(int i, double n, double t, char *str);
 /*HOOKS*/
 void		ft_scrollhook(double xdelta, double ydelta, void *param);

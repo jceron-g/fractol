@@ -6,7 +6,7 @@
 #    By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 14:59:39 by jceron-g          #+#    #+#              #
-#    Updated: 2024/02/05 12:44:33 by jceron-g         ###   ########.fr        #
+#    Updated: 2024/02/06 09:42:52 by jceron-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,6 @@ $(NAME): $(OBJECTS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(BLUE)Compiling, please wait.
 
 bonus: $(OBJECTS_B)
 		ar rcs $(NAME) $(OBJECTS_B)

@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:33:07 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/05 11:42:10 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/06 13:20:17 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,37 @@ double	map(double num, double new_min, double new_max, double old_max)
 	return ((new_max - new_min) * (num) / (old_max) + new_min);
 }
 
-t_complex	sum_complex(t_complex z1, t_complex z2)
+t_complex	sum_complex(t_complex z1, t_complex z2, t_fractal *fractal)
 {
 	t_complex	result;
 
-	result.real = z1.real + z2.real;
-	result.ima = z1.ima + z2.ima;
+	if (!ft_strncmp(fractal->name, "burningship", 11))
+	{
+		result.real = z1.real + z2.real;
+		result.ima = z1.ima - z2.ima;
+	}
+	else
+	{
+		result.real = z1.real + z2.real;
+		result.ima = z1.ima + z2.ima;
+	}
 	return (result);
 }
 
-t_complex	square_complex(t_complex z)
+t_complex	square_complex(t_complex z, t_fractal *fractal)
 {
 	t_complex	result;
 
-	result.real = (z.real * z.real) - (z.ima * z.ima);
-	result.ima = 2 * z.real * z.ima;
+	if (!ft_strncmp(fractal->name, "burningship", 11))
+	{
+		result.real = (z.real * z.real) - (z.ima * z.ima);
+		result.ima = 2 * fabs((z.real * z.ima));
+	}
+	else
+	{
+		result.real = (z.real * z.real) - (z.ima * z.ima);
+		result.ima = 2 * (z.real * z.ima);
+	}
 	return (result);
 }
 
