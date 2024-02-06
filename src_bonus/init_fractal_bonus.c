@@ -6,11 +6,11 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:49:46 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/06 14:02:02 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:11:45 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "../fractol_bonus.h"
 
 void	data_init(t_fractal *fractal)
 {

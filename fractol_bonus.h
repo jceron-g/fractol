@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 12:41:21 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/06 15:13:31 by jceron-g         ###   ########.fr       */
+/*   Created: 2024/02/06 15:11:02 by jceron-g          #+#    #+#             */
+/*   Updated: 2024/02/06 15:11:25 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # include "lib/libft/libft.h"
 # include "lib/MLX42/include/MLX42/MLX42.h"
@@ -69,8 +70,8 @@ void		choose_fractal(t_complex *z, t_complex *c, t_fractal *fractal);
 int			check_fractal(int argc, char **argv, t_fractal *fractal);
 /*Maths*/
 double		map(double num, double n_min, double n_max, double o_max);
-t_complex	sum_complex(t_complex z1, t_complex z2);
-t_complex	square_complex(t_complex z);
+t_complex	sum_complex(t_complex z1, t_complex z2, t_fractal *fractal);
+t_complex	square_complex(t_complex z, t_fractal *fractal);
 double		ft_atodbl(int i, double n, double t, char *str);
 /*HOOKS*/
 void		ft_scrollhook(double xdelta, double ydelta, void *param);

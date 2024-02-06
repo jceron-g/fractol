@@ -6,11 +6,11 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:35:33 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/06 13:21:55 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:12:01 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "../fractol_bonus.h"
 
 void	choose_fractal(t_complex *z, t_complex *c, t_fractal *fractal)
 {
