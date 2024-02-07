@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:49:46 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/07 10:30:08 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/07 12:25:53 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ int	check_fractal(int argc, char **argv, t_fractal *fractal)
 {
 	if (argc > 1)
 	{
-		check_params(argv[2]);
-		check_params(argv[3]);
 		if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
 			fractal->name = argv[1];
 		else if (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
 		{
+			check_params(argv[2]);
+			check_params(argv[3]);
 			fractal->name = argv[1];
 			fractal->julia_x = ft_atodbl(0.0, 0.0, 1.0, argv[2]);
 			fractal->julia_y = ft_atodbl(0.0, 0.0, 1.0, argv[3]);
