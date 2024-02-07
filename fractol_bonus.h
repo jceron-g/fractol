@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:11:02 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/06 15:11:25 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/07 11:42:22 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ typedef struct s_fractal
 	void		*colors;
 	double		esc_value;		//hypotenuse
 	int			iteration_def;
+	double		min_real;
+	double		max_imag;
 	double		shift_x;
 	double		shift_y;
 	double		julia_x;
@@ -68,6 +70,8 @@ void		msg_error(void);
 void		data_init(t_fractal *fractal);
 void		choose_fractal(t_complex *z, t_complex *c, t_fractal *fractal);
 int			check_fractal(int argc, char **argv, t_fractal *fractal);
+int			check_type(int argc, char **argv, t_fractal *fractal);
+void		check_params(char *str);
 /*Maths*/
 double		map(double num, double n_min, double n_max, double o_max);
 t_complex	sum_complex(t_complex z1, t_complex z2, t_fractal *fractal);

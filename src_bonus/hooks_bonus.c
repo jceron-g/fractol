@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:00:52 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/06 15:11:38 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:20:17 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,25 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 void	ft_scrollhook(double xdelta, double ydelta, void *param)
 {
 	t_fractal	*fractal;
+	int			x;
+	int			y;
 
 	fractal = param;
 	xdelta = 0;
+	mlx_get_mouse_pos(fractal->mlx_connection, &x, &y);
 	if (ydelta > 0)
-		fractal->zoom *= 1.05;
+	{
+		fractal->min_real += (fractal->shift_x * WIDTH * fractal->zoom \
+		* ((double)x / WIDTH));
+		fractal->max_imag -= (fractal->shift_y * HEIGHT * fractal->zoom \
+		* ((double)y / WIDTH));
+	}
 	else if (ydelta < 0)
-		fractal->zoom /= 1.05;
+	{
+		fractal->min_real -= (fractal->shift_x * WIDTH * fractal->zoom \
+		* ((double)x / WIDTH));
+		fractal->max_imag += (fractal->shift_y * HEIGHT * fractal->zoom \
+		* ((double)y / WIDTH));
+	}
 	fractal_render(fractal);
 }

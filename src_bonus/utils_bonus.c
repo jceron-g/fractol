@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:33:07 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/06 15:12:10 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/07 11:41:28 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,26 @@ double	ft_atodbl(int i, double n, double t, char *str)
 		i++;
 	}
 	return (t * n);
+}
+
+int	check_type(int argc, char **argv, t_fractal *fractal)
+{
+	if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
+		fractal->name = argv[1];
+	else if (argc == 2 && !ft_strncmp(argv[1], "burningship", 11))
+		fractal->name = argv[1];
+	else if (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
+	{
+		check_params(argv[2]);
+		check_params(argv[3]);
+		fractal->name = argv[1];
+		fractal->julia_x = ft_atodbl(0.0, 0.0, 1.0, argv[2]);
+		fractal->julia_y = ft_atodbl(0.0, 0.0, 1.0, argv[3]);
+	}
+	else
+	{
+		msg_error();
+		return (0);
+	}
+	return (1);
 }

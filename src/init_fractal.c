@@ -6,7 +6,7 @@
 /*   By: jceron-g <jceron-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:49:46 by jceron-g          #+#    #+#             */
-/*   Updated: 2024/02/06 15:17:07 by jceron-g         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:30:08 by jceron-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,43 @@ void	msg_error(void)
 {
 	ft_putstr_fd("Error: Invalid arguments\n", 2);
 	ft_putstr_fd("Please use: ./fractol mandelbrot or\n", 2);
-	ft_putstr_fd("Please use: ./fractol julia <x> <y>\n", 2);
+	ft_putstr_fd("Please use: ./fractol julia <x_num> <y_num>\n", 2);
 	exit(EXIT_FAILURE);
+}
+
+void	check_params(char *str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (str[i])
+	{
+		if (str[i] == '.')
+		{
+			while (j < i)
+			{
+				if (str[j++] == '.')
+					msg_error();
+			}
+		}
+		if (str[i] == '+' || str[i] == '-')
+		{
+			if (i != 0 || ft_isdigit(str[i + 1]) == 0)
+				msg_error();
+		}
+		if (ft_isdigit(str[i++]) == 0)
+			msg_error();
+	}
 }
 
 int	check_fractal(int argc, char **argv, t_fractal *fractal)
 {
 	if (argc > 1)
 	{
+		check_params(argv[2]);
+		check_params(argv[3]);
 		if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
 			fractal->name = argv[1];
 		else if (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
